@@ -3,13 +3,21 @@ class Background {
     this.position = { x: x, y: y };
     this.size = { width: canvas.width, height: canvas.height };
     this.velocity = { dx: -1, dy: 0 };
-    this.img = new Image();
-    this.img.src = "../images/bg.png";
+    this.bg = new Image();
+    this.bg.src = "../images/bg.png";
+  }
+
+  backgroundSound() {
+    const music = new Audio();
+    music.src = "./sounds/background.mp3";
+    music.play();
+    // music.loop = true;
+    music.volume = 0.1;
   }
 
   draw() {
     c.drawImage(
-      this.img,
+      this.bg,
       this.position.x,
       this.position.y,
       canvas.width,

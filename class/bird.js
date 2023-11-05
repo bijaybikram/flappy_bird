@@ -34,6 +34,22 @@ class Bird {
     }
   }
 
+  // adding the bird flapping sound
+  flapSound() {
+    const flaps = new Audio();
+    flaps.src = "./sounds/flap.mp3";
+    flaps.volume = 0.05;
+    flaps.play();
+  }
+
+  // adding the bird dying sound
+  dieSound() {
+    const die = new Audio();
+    die.src = "./sounds/die.mp3";
+    die.volume = 0.05;
+    die.play();
+  }
+
   draw() {
     // const currentFrameImage = this.frames[this.currentFrame];
     c.drawImage(
@@ -55,6 +71,7 @@ class Bird {
       this.position.y = canvas.height - this.size.height;
       // console.log("collided");
       this.isDead = true;
+      this.dieSound();
     }
   }
 
@@ -67,6 +84,7 @@ class Bird {
 
     if (!this.isDead == true) {
       this.move();
+      // this.shootSound();
       this.frameUpdate();
       this.collision();
     }

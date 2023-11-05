@@ -50,6 +50,7 @@ class Pole {
     ) {
       this.velocity.dx = 0;
       bird.isDead = true;
+      bird.dieSound();
     }
 
     // down pole collision
@@ -64,6 +65,7 @@ class Pole {
       //   console.log("collision");
       this.velocity.dx = 0;
       bird.isDead = true;
+      bird.dieSound();
     }
   }
 
